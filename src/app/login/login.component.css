@@ -1,0 +1,112 @@
+.LC {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.login-container {
+  max-width: 400px;
+  width: 90%;
+  padding: 2.5rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: white;
+  text-align: center;
+}
+
+.login-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+form {
+  width: 100%;
+}
+
+form input {
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  background: rgba(81, 76, 76, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+form input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+form input:focus {
+  outline: none;
+  background: rgba(138, 89, 89, 0.5);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+button {
+  margin-top: 10%;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #a777e3, #6e8efb);
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+p.text-danger {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: rgba(255, 100, 100, 0.9);
+}
+
+@media (max-width: 576px) {
+  .login-container {
+    padding: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  button {
+    font-size: 1rem;
+  }
+}

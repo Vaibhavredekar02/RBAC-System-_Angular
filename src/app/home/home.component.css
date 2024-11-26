@@ -1,0 +1,63 @@
+/* Main container */
+.poster {
+    position: relative;
+    text-align: center;
+    padding: 60px 30px;
+    background: linear-gradient(45deg, #4b6cb7, #182848); 
+    color: #fff;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 100px auto;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+  }
+  
+  .poster h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Developer Name Styling */
+  .poster span {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #00d8ff;
+    text-transform: capitalize;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* Shine Effect using a pseudo-element */
+  .poster::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)); /* Soft diagonal shine */
+    animation: shine 4s ease-in-out infinite; /* Smooth shine effect */
+    z-index: 1;
+    pointer-events: none; /* Ensure shine doesn't interfere with clicking */
+  }
+  
+  @keyframes shine {
+    0% {
+      top: -50%; /* Start from bottom-left */
+      left: -50%; /* Start from bottom-left */
+    }
+    50% {
+      top: 50%; /* Move diagonally to the center */
+      left: 50%; /* Move diagonally to the center */
+    }
+    100% {
+      top: 150%; /* End at top-right */
+      left: 150%; /* End at top-right */
+    }
+  }
+  

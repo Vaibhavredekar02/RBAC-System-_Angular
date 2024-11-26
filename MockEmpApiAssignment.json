@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Vaibhav",
+      "password": "1234",
+      "email": "vaibhav@gmail.com",
+      "isactive": true,
+      "role": "Admin"
+    },
+    {
+      "id": "2",
+      "name": "Sandesh",
+      "password": "1111",
+      "email": "sandesh@gmail.com",
+      "isactive": true,
+      "role": "Employee"
+    },
+    {
+      "id": "3",
+      "name": "Shubham Junglee",
+      "password": "2222",
+      "email": "shubham@gmail.com",
+      "isactive": true,
+      "role": "Manager"
+    },
+    {
+      "id": "5",
+      "name": "Rohan Redekar",
+      "password": "3333",
+      "email": "rohan@gmail.com",
+      "isactive": true,
+      "role": "Manager"
+    },
+    {
+      "id": "6",
+      "name": "Pranav Kakade",
+      "password": "paranav_pk",
+      "email": "pranavkakade@gmail.com",
+      "isactive": true,
+      "role": "Employee"
+    },
+    {
+      "id": "7",
+      "name": "Yogesh Sarode",
+      "password": "Yogi_09",
+      "email": "yogesh@gmail.com",
+      "isactive": false,
+      "role": "Employee"
+    },
+    {
+      "id": "8",
+      "name": "Sameer Khonde",
+      "email": "sameer@gmail.com",
+      "password": "123321",
+      "isactive": true,
+      "role": "Manager"
+    }
+  ]
+}

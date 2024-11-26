@@ -1,0 +1,21 @@
+.poster {
+    position: relative;
+    text-align: center;
+    padding: 60px 30px;
+    background: linear-gradient(45deg, #4b6cb7, #182848); 
+    color: #fff;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: 100px auto;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.poster h1 {
+    font-family: 'Arial Black', sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    margin: 0;
+}

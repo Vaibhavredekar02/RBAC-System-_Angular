@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="../assets/images/21_Angular_logo_logos-512.webp" alt="..." height="36">
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+        <ng-container *ngIf="!authService.isLoggedIn()">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/home" routerLinkActive="act">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login" routerLinkActive="act">Login</a>
+          </li>
+        </ng-container>
+        
+
+        <!-- Visible only when logged in -->
+        <ng-container *ngIf="authService.isLoggedIn()">
+          <!-- For Admin -->
+          <ng-container *ngIf="authService.isAdmin()">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/admindash" routerLinkActive="act">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/employeeportal" routerLinkActive="act">EmployeeData</a>
+            </li>
+          </ng-container>
+
+          <!-- For Employee -->
+          <ng-container *ngIf="authService.isEmployee()">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/employeedash" routerLinkActive="act">Dashboard</a>
+            </li>
+          </ng-container>
+
+          <ng-container *ngIf="authService.isManager()">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/managerdash" routerLinkActive="act">Dashboard</a>
+            </li>
+          </ng-container>
+
+          <!-- Logout for both -->
+          <li class="nav-item">
+            <a class="nav-link" (click)="logout()" style="cursor: pointer;">Logout</a>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</nav>
