@@ -12,8 +12,7 @@ export class MyserviceService {
   
     private apiUrl = 'http://localhost:3000/users'; 
 
-    
-  
+ 
     constructor(private http: HttpClient) {}
   
     getUsers(): Observable<any[]> {
@@ -33,35 +32,29 @@ export class MyserviceService {
     }
 
     
-  // Get the currently logged-in user from localStorage
   private getLoggedInUser(): any {
     return JSON.parse(sessionStorage.getItem('loggedInUser') || '{}');
   }
 
-    // Check if the user is logged in
     isLoggedIn(): boolean {
       return !!sessionStorage.getItem('loggedInUser');
     }
 
-    // Check if the logged-in user is an Admin
     isAdmin(): boolean {
       const user = this.getLoggedInUser();
       return user?.role === 'Admin';
     }
 
-    // Check if the logged-in user is an Employee
     isEmployee(): boolean {
       const user = this.getLoggedInUser();
       return user?.role === 'Employee';
     }
 
-    // Check if the logged-in user is a Manager
     isManager(): boolean {
       const user = this.getLoggedInUser();
       return user?.role === 'Manager';
     }
 
-    // Log the user out by clearing localStorage
     logout(): void {
       sessionStorage.removeItem('loggedInUser');
     }

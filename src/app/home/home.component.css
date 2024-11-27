@@ -22,7 +22,6 @@
     z-index: 2;
   }
   
-  /* Developer Name Styling */
   .poster span {
     font-size: 1.3rem;
     font-weight: bold;
@@ -32,7 +31,6 @@
     z-index: 2;
   }
   
-  /* Shine Effect using a pseudo-element */
   .poster::before {
     content: '';
     position: absolute;
@@ -40,24 +38,24 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)); /* Soft diagonal shine */
-    animation: shine 4s ease-in-out infinite; /* Smooth shine effect */
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1)); 
+    animation: shine 4s ease-in-out infinite; 
     z-index: 1;
-    pointer-events: none; /* Ensure shine doesn't interfere with clicking */
+    pointer-events: none; 
   }
   
   @keyframes shine {
     0% {
-      top: -50%; /* Start from bottom-left */
-      left: -50%; /* Start from bottom-left */
+      top: -50%; 
+      left: -50%; 
     }
     50% {
-      top: 50%; /* Move diagonally to the center */
-      left: 50%; /* Move diagonally to the center */
+      top: 50%; 
+      left: 50%; 
     }
     100% {
-      top: 150%; /* End at top-right */
-      left: 150%; /* End at top-right */
+      top: 150%;
+      left: 150%; 
     }
   }
   
