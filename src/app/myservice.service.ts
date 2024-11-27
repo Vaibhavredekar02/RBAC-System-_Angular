@@ -33,11 +33,11 @@ export class MyserviceService {
 
     
   private getLoggedInUser(): any {
-    return JSON.parse(sessionStorage.getItem('loggedInUser') || '{}');
+    return JSON.parse(localStorage.getItem('loggedInUser') || '{}');
   }
 
     isLoggedIn(): boolean {
-      return !!sessionStorage.getItem('loggedInUser');
+      return !!localStorage.getItem('loggedInUser');
     }
 
     isAdmin(): boolean {
@@ -56,6 +56,6 @@ export class MyserviceService {
     }
 
     logout(): void {
-      sessionStorage.removeItem('loggedInUser');
+      localStorage.removeItem('loggedInUser');
     }
   }

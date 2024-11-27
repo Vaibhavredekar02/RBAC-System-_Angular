@@ -25,7 +25,7 @@ export class LoginComponent {
         );
   
         if (user) {
-          sessionStorage.setItem('loggedInUser', JSON.stringify(user));
+          localStorage.setItem('loggedInUser', JSON.stringify(user));
   
           if (user.role === 'Admin') {
             this.router.navigate(['/admindash']);
