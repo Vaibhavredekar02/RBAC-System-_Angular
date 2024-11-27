@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class MyserviceService {
 
   
@@ -33,12 +35,12 @@ export class MyserviceService {
     
   // Get the currently logged-in user from localStorage
   private getLoggedInUser(): any {
-    return JSON.parse(localStorage.getItem('loggedInUser') || '{}');
+    return JSON.parse(sessionStorage.getItem('loggedInUser') || '{}');
   }
 
     // Check if the user is logged in
     isLoggedIn(): boolean {
-      return !!localStorage.getItem('loggedInUser');
+      return !!sessionStorage.getItem('loggedInUser');
     }
 
     // Check if the logged-in user is an Admin
@@ -61,6 +63,6 @@ export class MyserviceService {
 
     // Log the user out by clearing localStorage
     logout(): void {
-      localStorage.removeItem('loggedInUser');
+      sessionStorage.removeItem('loggedInUser');
     }
   }

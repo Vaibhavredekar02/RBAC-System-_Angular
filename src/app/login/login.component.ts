@@ -16,7 +16,7 @@ export class LoginComponent {
   password: string = '';
   errorMessage: string = '';
 
-  constructor(private myService: MyserviceService, private router: Router) {}
+  constructor(private myService: MyserviceService, private router: Router) {} 
   login() {
     this.myService.getUsers().subscribe(
       (users) => {
@@ -25,9 +25,8 @@ export class LoginComponent {
         );
   
         if (user) {
-          localStorage.setItem('loggedInUser', JSON.stringify(user));
+          sessionStorage.setItem('loggedInUser', JSON.stringify(user));
   
-          // Navigate based on user role
           if (user.role === 'Admin') {
             this.router.navigate(['/admindash']);
           } else if (user.role === 'Employee') {
