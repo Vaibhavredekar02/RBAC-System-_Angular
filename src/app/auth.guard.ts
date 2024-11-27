@@ -3,40 +3,36 @@ import { CanActivateFn, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { MyserviceService } from './myservice.service';
 
-export const authGuard: CanActivateFn = (route, state) => {
-  const authService = inject(MyserviceService); 
-  const router = inject(Router); 
-  const toastr = inject(ToastrService); 
 
-  // Check if the user is logged in
+
+export const authGuard: CanActivateFn = (route, state) => {
+  const authService = inject(MyserviceService);
+  const router = inject(Router);
+  const toastr = inject(ToastrService);
+
   if (!authService.isLoggedIn()) {
-    router.navigate(['/login']);
+    // Redirect to login with returnUrl
+    router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
     return false;
   }
 
-  // Menu-specific checks
-  const menu = route.url[0]?.path;
+  const menu = route.url.length > 0 ? route.url[0].path : null;
 
-  if (menu) {
-    if (menu === 'admindash' && !authService.isAdmin()) {
+  const hasAccess = (roleCheckFn: () => boolean): boolean => {
+    if (!roleCheckFn()) {
       toastr.warning('You don\'t have access to this page.');
       router.navigate(['/']);
       return false;
     }
+    return true;
+  };
 
-    if (menu === 'employeeportal' && !authService.isEmployee()) {
-      toastr.warning('You don\'t have access to this page.');
-      router.navigate(['/']);
-      return false;
-    }
+  if (menu === 'admindash' && !hasAccess(authService.isAdmin)) return false;
+  if (menu === 'employeeportal' && !hasAccess(authService.isEmployee)) return false;
+  if (menu === 'managerdash' && !hasAccess(authService.isManager)) return false;
 
-    if (menu === 'managerdash' && !authService.isManager()) {
-      toastr.warning('You don\'t have access to this page.');
-      router.navigate(['/']);
-      return false;
-    }
-  }
-
-  // If passed all checks
   return true;
+
+
+  
 };

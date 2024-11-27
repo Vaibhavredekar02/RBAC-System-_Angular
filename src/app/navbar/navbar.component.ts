@@ -14,8 +14,10 @@ import { CommonModule } from '@angular/common';
 export class NavbarComponent {
   constructor(public authService: MyserviceService, private router: Router) {}
 
-  logout() {
-    this.authService.logout();
-    this.router.navigate(['/home']); 
+  logout(): void {
+    localStorage.removeItem('loggedInUser');
+    this.router.navigate(['/login']).then(() => {
+      window.location.reload(); 
+    });
   }
 }

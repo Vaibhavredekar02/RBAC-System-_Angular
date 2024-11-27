@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
+
 
 @Component({
   selector: 'app-root',
@@ -11,11 +12,11 @@ import { NavbarComponent } from './navbar/navbar.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'assignment';
 
-  constructor() {
-    if (!localStorage.getItem('loggedInUser')) {
-      localStorage.removeItem('loggedInUser');
-    }
+  constructor(private router: Router) {}
+
+  logout() {
+    localStorage.removeItem('loggedInUser');
+    this.router.navigate(['/home']);
   }
 }

@@ -45,7 +45,7 @@
       "name": "Yogesh Sarode",
       "password": "Yogi_09",
       "email": "yogesh@gmail.com",
-      "isactive": false,
+      "isactive": true,
       "role": "Employee"
     },
     {

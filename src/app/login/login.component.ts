@@ -17,18 +17,16 @@ export class LoginComponent {
   errorMessage: string = '';
 
   constructor(private myService: MyserviceService, private router: Router) {}
-
   login() {
     this.myService.getUsers().subscribe(
       (users) => {
         const user = users.find(
           (u) => u.email === this.username && u.password === this.password
         );
-
+  
         if (user) {
-          // Set logged-in user in localStorage
           localStorage.setItem('loggedInUser', JSON.stringify(user));
-
+  
           // Navigate based on user role
           if (user.role === 'Admin') {
             this.router.navigate(['/admindash']);
@@ -47,4 +45,8 @@ export class LoginComponent {
       }
     );
   }
+  
+
+ 
+
 }
